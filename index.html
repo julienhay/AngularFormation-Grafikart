@@ -4,31 +4,24 @@
 	<title></title>
 </head>
 <body ng-app="MonApp">
-	
-	<input type="text" ng-model="query" />
-	{{query}}
 
-	<select ng-model="order">
-		<option value="username">Organiser par nom</option>
-		<option value="content">Organiser par contenu</option>
-	</select>
-
-	<div ng-controller="CommentsCtrl">
-		<div ng-repeat="comment in comments | filter:query | orderBy:order">
-			<p>
-				<strong>{{comment.username}}</strong><br>
-				{{comment.content}}
-			</p>
-		</div>
-	</div>
+	<div ng-view></div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+	<script src="http://code.angularjs.org/1.2.14/angular-route.min.js"></script>
 
 	<script>
 
-		var app = angular.module('MonApp', []);
+		var app = angular.module('MonApp', ['ngRoute']);
 
-		app.controller('CommentsCtrl',function ($scope) {
+		app.config(function($routeProvider) {
+			$routeProvider
+				.when('/', {templateUrl: 'partials/home.html'})
+				.when('/comments', {templateUrl: 'partials/comments.html', controller: 'CommentsCtrl'})
+				.otherwise({redirectTo: '/'});
+		});
+
+		app.controller('CommentsCtrl', function ($scope) {
 			$scope.comments = [
 			    {
 			        "username": "Emerson",
