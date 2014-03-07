@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body ng-app>
+	
+	<input type="text" ng-model="query" />
+	{{query}}
+
+	<select ng-model="order">
+		<option value="username">Organiser par nom</option>
+		<option value="content">Organiser par contenu</option>
+	</select>
+
+	<div ng-controller="CommentsCtrl">
+		<div ng-repeat="comment in comments | filter:query | orderBy:order">
+			<p>
+				<strong>{{comment.username}}</strong><br>
+				{{comment.content}}
+			</p>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+
+	<script>
+
+		function CommentsCtrl($scope) {
+			$scope.comments = [
+			    {
+			        "username": "Emerson",
+			        "city": "Sanborn",
+			        "email": "emersonmontoya@danja.com",
+			        "content": "dolor laboris deserunt minim incididunt"
+			    },
+			    {
+			        "username": "Haley",
+			        "city": "Sylvanite",
+			        "email": "haleymontoya@danja.com",
+			        "content": "eu occaecat enim proident labore"
+			    },
+			    {
+			        "username": "Mitzi",
+			        "city": "Westerville",
+			        "email": "mitzimontoya@danja.com",
+			        "content": "qui minim eu labore ea"
+			    },
+			    {
+			        "username": "Ballard",
+			        "city": "Cumminsville",
+			        "email": "ballardmontoya@danja.com",
+			        "content": "aliqua laboris amet magna mollit"
+			    },
+			    {
+			        "username": "Velazquez",
+			        "city": "Breinigsville",
+			        "email": "velazquezmontoya@danja.com",
+			        "content": "ea pariatur consectetur excepteur nulla"
+			    },
+			    {
+			        "username": "Black",
+			        "city": "Saranap",
+			        "email": "blackmontoya@danja.com",
+			        "content": "dolore proident Lorem adipisicing reprehenderit"
+			    },
+			    {
+			        "username": "Courtney",
+			        "city": "Ypsilanti",
+			        "email": "courtneymontoya@danja.com",
+			        "content": "eiusmod occaecat fugiat anim quis"
+			    },
+			    {
+			        "username": "Nichols",
+			        "city": "Waukeenah",
+			        "email": "nicholsmontoya@danja.com",
+			        "content": "esse laboris in occaecat voluptate"
+			    }
+			];
+		}
+
+	</script>
+</body>
+</html>
