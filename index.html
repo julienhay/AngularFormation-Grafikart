@@ -3,7 +3,7 @@
 <head>
 	<title></title>
 </head>
-<body ng-app>
+<body ng-app="MonApp">
 	
 	<input type="text" ng-model="query" />
 	{{query}}
@@ -26,7 +26,9 @@
 
 	<script>
 
-		function CommentsCtrl($scope) {
+		var app = angular.module('MonApp', []);
+
+		app.controller('CommentsCtrl',function ($scope) {
 			$scope.comments = [
 			    {
 			        "username": "Emerson",
@@ -77,7 +79,7 @@
 			        "content": "esse laboris in occaecat voluptate"
 			    }
 			];
-		}
+		});
 
 	</script>
 </body>
