@@ -1,7 +1,13 @@
-<h1>Article #1</h1>
+<div ng-repeat="post in posts">
+	
+	<h1>{{post.name}}</h1>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, hic, saepe, praesentium rem omnis id quis quia sequi ab totam veritatis molestiae eos facilis tempore quo provident corrupti facere eveniet?</p>
+	<p>{{post.content}}</p>
 
-<h2>3 Commentaires</h2>
+	<p>
+		<a href="#/comments/{{post.id}}">{{post.comments.length}} Commentaires</a>
+	</p>
 
-<a href="#/comments">Voir les commentaires</a>
+	<hr>
+
+</div>
