@@ -1,18 +1,29 @@
 <a href="#/">Revenir aux articles</a>
 
-<!-- 
-<input type="text" ng-model="query" />
+<div ng-hide="loading">
+	<!-- 
+	<input type="text" ng-model="query" />
 
-<select ng-model="order">
-	<option value="username">Organiser par nom</option>
-	<option value="content">Organiser par contenu</option>
-</select>
--->
+	<select ng-model="order">
+		<option value="username">Organiser par nom</option>
+		<option value="content">Organiser par contenu</option>
+	</select>
+	-->
 
-<h1>{{title}}</h1>
-<div ng-repeat="comment in comments | filter:query | orderBy:order">
-	<p>
-		<strong>{{comment.username}}</strong><br>
-		{{comment.content}}
-	</p>
+	<h1>{{title}}</h1>
+	<div ng-repeat="comment in comments | filter:query | orderBy:order">
+		<p>
+			<strong>{{comment.username}}</strong><br>
+			{{comment.content}}
+		</p>
+	</div>
+
+	<form ng-submit="addComment()">
+		<input type="text" placeholder="username" ng-model="newComment.username" /><br>
+		<input type="text" placeholder="city" ng-model="newComment.city" /><br>
+		<input type="text" placeholder="email" ng-model="newComment.email" /><br>
+		<textarea ng-model="newComment.content"></textarea>
+
+		<input type="submit" value="Envoyer">
+	</form>
 </div>
