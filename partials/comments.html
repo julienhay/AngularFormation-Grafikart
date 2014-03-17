@@ -1,4 +1,8 @@
-<a href="#/">Revenir aux articles</a>
+<ol class="breadcrumb">
+  <li><a href="#/">Articles</a></li>
+  <li>{{title}}</li>
+</ol>
+
 
 <div ng-hide="loading">
 	<!-- 
@@ -11,6 +15,10 @@
 	-->
 
 	<h1>{{title}}</h1>
+	<p><img src='{{picture}}' alt="{{title}}" /></p>
+	<p>{{content}}</p>
+
+	<h3>{{comments.length}} Commentaires</h3>
 	<div ng-repeat="comment in comments | filter:query | orderBy:order">
 		<p>
 			<strong>{{comment.username}}</strong><br>
@@ -18,12 +26,24 @@
 		</p>
 	</div>
 
-	<form ng-submit="addComment()">
-		<input type="text" placeholder="username" ng-model="newComment.username" /><br>
-		<input type="text" placeholder="city" ng-model="newComment.city" /><br>
-		<input type="text" placeholder="email" ng-model="newComment.email" /><br>
-		<textarea ng-model="newComment.content"></textarea>
 
-		<input type="submit" value="Envoyer">
+	<hr>
+	<h3>Ajouter un commentaire</h3>
+
+	<form ng-submit="addComment()">
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="username" ng-model="newComment.username" />
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="city" ng-model="newComment.city" />
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="email" ng-model="newComment.email" />
+		</div>
+		<div class="form-group">
+			<textarea ng-model="newComment.content" class="form-control"></textarea>
+		</div>
+
+		<input type="submit" class="btn btn-default" value="Envoyer">
 	</form>
 </div>

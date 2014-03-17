@@ -8,6 +8,8 @@ app.controller('CommentsCtrl', function ($scope, PostFactory, $routeParams, $roo
 	PostFactory.get($routeParams.id).then(function(post){
 		$rootScope.loading = false;
 		$scope.title = post.name;
+		$scope.picture = post.picture;
+		$scope.content = post.content;
 		$scope.comments = post.comments;
 	}, function(msg) {
 		alert(msg);

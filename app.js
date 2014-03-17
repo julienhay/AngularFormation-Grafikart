@@ -6,3 +6,4 @@ app.config(function($routeProvider) {
 		.when('/comments/:id', {templateUrl: 'partials/comments.html', controller: 'CommentsCtrl'})
 		.otherwise({redirectTo: '/'});
 })
+
