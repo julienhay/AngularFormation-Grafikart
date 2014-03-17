@@ -8,6 +8,8 @@ Chaine Youtube de la formation : http://www.youtube.com/watch?v=aBE0St5yI7U&list
 
 Code pour JSON Generator
 -----------
+
+Code nécessaire pour générer le fichier JSON du tutorial sur http://www.json-generator.com/
 ```json
 [
     '{{repeat(8, 20)}}',

@@ -1,0 +1,1 @@
+<div class="tab" ng-show="selected" ng-transclude></div>

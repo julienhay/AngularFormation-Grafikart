@@ -14,20 +14,21 @@
 	</select>
 	-->
 
-	<h1>{{title}}</h1>
-	<p><img src='{{picture}}' alt="{{title}}" /></p>
-	<p>{{content}}</p>
+	<ng-tabs>
+		<ng-tab title="Article">
+			<h1>{{title}}</h1>
+			<p><img src='{{picture}}' alt="{{title}}" /></p>
+			<p>{{content}}</p>
+		</ng-tab>
 
-	<h3>{{comments.length}} Commentaires</h3>
-	<div ng-repeat="comment in comments | filter:query | orderBy:order">
-		<p>
-			<strong>{{comment.username}}</strong><br>
-			{{comment.content}}
-		</p>
-	</div>
+		<ng-tab title="{{comments.length}} Commentaires">
+			<div ng-repeat="comment in comments | filter:query | orderBy:order">
+				<ng-comment comment="comment"></ng-comment>
+			</div>
+		</ng-tab>
+	</ng-tabs>
 
 
-	<hr>
 	<h3>Ajouter un commentaire</h3>
 
 	<form ng-submit="addComment()">
