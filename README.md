@@ -1,4 +1,4 @@
-AngularFormation-Grafikart
+Formation Grafikart AngularJS
 ==========================
 
 Code source de la formation AngularJS de Grafikart
