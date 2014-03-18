@@ -22,6 +22,7 @@
 		</ng-tab>
 
 		<ng-tab title="{{comments.length}} Commentaires">
+			<h3>{{comments.length}} Commentaires</h3>
 			<div ng-repeat="comment in comments | filter:query | orderBy:order">
 				<ng-comment comment="comment"></ng-comment>
 			</div>

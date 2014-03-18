@@ -1,6 +1,10 @@
 <div class="tabs">
 	<ul class="nav nav-pills">
-	  <li ng-repeat="tab in tabs" ng-click="tab.selected = true"><a>{{tab.title}}</a></li>
+	  <li 
+	  	ng-repeat="tab in tabs" 
+	  	ng-click="select(tab)"
+	  	ng-class="{active: tab.selected}">
+	  	<a>{{tab.title}}</a></li>
 	</ul>
 	<div class="tabs-content" ng-transclude></div>
 </div>
