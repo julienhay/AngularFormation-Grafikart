@@ -12,27 +12,23 @@ Code pour JSON Generator
 Code nécessaire pour générer le fichier JSON du tutorial sur http://www.json-generator.com/
 ```json
 [
-    '{{repeat(8, 20)}}',
-    {
-        id: '{{index}}',
-        picture: 'http://lorempixel.com/g/250/100/',
-        name: '{{company}}',
-        content: '{{lorem(50)}}',
-        tags: [
-            '{{repeat(7)}}',
-            '{{lorem(1)}}'
-        ],
-        comments: [
-            '{{repeat(1,4)}}',
-            {
-                username: '{{firstName}} {{surname}}',
-                city: '{{city}}',
-                email: '{{email}}',
-                content: '{{lorem(20)}}'
-                
-            }
-        ]
-    }
+  "{{repeat(5, 7)}}",
+  {
+    "id": "{{index()}}",
+    "picture": "http://lorempixel.com/g/250/100?random={{index()+1}}",
+    "name": "{{company()}}",
+    "content": "{{lorem()}}",
+    "tags": ["{{repeat(7)}}", "{{lorem(1)}}"],
+    "comments": [
+      "{{repeat(1,3)}}",
+      {
+        "username": "{{firstName()}} {{surname()}}",
+        "city": "{{city()}}",
+        "email": "{{email()}}",
+        "content": "{{lorem(5)}}"
+      }
+    ]
+  }
 ]
 ```
 
